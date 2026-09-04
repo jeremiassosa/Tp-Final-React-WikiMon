@@ -18,6 +18,6 @@ export const useLoginForm = create<LoginProps>()(
         setPasswordInput: (password) => set({ password }),
         setNameInput: (name) => set({ name }),   
         logout: () => set({ password: '', name: '' }),
-    }), { name: 'clave'}
+    }), { name: 'User-Storage' }
     )
   )

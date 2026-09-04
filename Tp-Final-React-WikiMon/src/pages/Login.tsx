@@ -16,13 +16,16 @@ function Login() {
     return (
         <div className="login">
             <form onSubmit={onSubmit}>
+                <h1 className="tittle">WikiMon</h1>
                 <input
+                    className="input-name"
                     type="text"
                     placeholder="Name"
                     value={name}
                     onChange={(e) => setNameInput(e.target.value)}
                 />
                 <input
+                    className="input-password"
                     type="password"
                     placeholder="Password"
                     value={password}
@@ -32,7 +35,7 @@ function Login() {
                     Get Into
                 </button>
             </form>
-            
+
         </div>
     )
 }
