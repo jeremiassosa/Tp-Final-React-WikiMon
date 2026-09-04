@@ -1,4 +1,5 @@
 import { useLoginForm } from "../store/AuthStore";
+import "../styles/Login.css"
 
 function Login() {
 
@@ -13,7 +14,7 @@ function Login() {
         e.preventDefault();
     }
     return (
-        <div>
+        <div className="login">
             <form onSubmit={onSubmit}>
                 <input
                     type="text"
@@ -27,12 +28,11 @@ function Login() {
                     value={password}
                     onChange={(e) => setPasswordInput(e.target.value)}
                 />
-                <button type="submit">Get Into</button>
+                <button className="btn-get-into" type="submit">
+                    Get Into
+                </button>
             </form>
-            <div>
-                <span>USER {name}</span>
-                <span>PASSWORD: {password}</span>
-            </div>
+            
         </div>
     )
 }
