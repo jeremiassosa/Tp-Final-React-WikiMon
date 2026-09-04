@@ -26,9 +26,32 @@ interface PokeApiFormResponse {
     };
   }[];
 }
+
+
+
+
+
+
 const PokemonCard: React.FC<{ name: string; url: string }> = ({ name, url }) => {
   const [details, setDetails] = useState<PokeApiFormResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [selectedName, setSelectedName] = useState<string | null>(null);
+  
+  async function handleClick(name: string) {
+  setSelectedName(name);
+  const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Error, El pokemon no existe o no se encontro');
+    const data: PokeApiFormResponse = await response.json();
+
+    localStorage.setItem("pokemonSeleccionado", JSON.stringify(data));
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 
   useEffect(() => {
     fetch(url)
@@ -49,7 +72,7 @@ const PokemonCard: React.FC<{ name: string; url: string }> = ({ name, url }) => 
   if (!details) return <li>No se pudo cargar {name}</li>;
 
   return (
-    <button>
+    <button onClick={() => handleClick(details.name)}>
       <p><strong>Id:</strong> {details.id}</p>
       <img src={details.sprites.front_default} alt={details.name} />
       <p><strong>Name:</strong> {details.name}</p>

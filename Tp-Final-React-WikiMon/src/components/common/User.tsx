@@ -1,22 +1,9 @@
-import useFetch from '../../hooks/useFetch';
-import type { PokeApiResponse } from '../../types/pokemon';
-
-
-
-
 const PokemonInfo = () => {
-const { data, loading, error } = useFetch('https://pokeapi.co/api/v2/pokemon/pikachu');
+  const stored = localStorage.getItem('pokemonSeleccionado');
+  const pokemon = stored ? JSON.parse(stored) : null;
+  console.log(pokemon);
 
-    if (loading) {
-    return <p>Cargando Pokémon...</p>;
-    }
-
-  if (error) {
-    return <p style={{ color: 'red' }}>Error: {error}</p>;
-  }
-
-  const pokemon = data as PokeApiResponse| null;
-
+  
   return (
     <div>
       <h2>Información del Pokémon</h2>
@@ -25,14 +12,39 @@ const { data, loading, error } = useFetch('https://pokeapi.co/api/v2/pokemon/pik
           <p><strong>Nombre:</strong> {pokemon.name}</p>
           <p><strong>ID:</strong> {pokemon.id}</p>
           <p><strong>Peso:</strong> {pokemon.weight}</p>
- <ul>
+
+          <ul>
             {pokemon.stats.map((item, index) => (
-            <li key={index}>
+              <li key={index}>
                 <strong>{item.stat.name}:</strong> {item.base_stat}
-            </li>
+                
+              </li>
             ))}
-        </ul>        </div>
-    )}
+          </ul>
+          <ul>
+            {pokemon.types.map((item, index) => {
+              console.log('works?s')
+              return (              <li key={index}>
+                <strong>{item.type.name}</strong>
+              </li>)
+            }
+
+            )}
+          </ul>
+            <ul>
+            {pokemon.abilities.map((item, index) => (
+              <li key={index}>
+                <strong>{item.ability.name}</strong>
+                {item.is_hidden && <span> (oculta)</span>}
+              </li>
+            ))}
+          </ul>
+
+
+
+
+        </div>
+      )}
     </div>
   );
 };
