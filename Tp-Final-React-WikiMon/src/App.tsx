@@ -1,12 +1,16 @@
 import './App.css'
-import UserList from './components/common/User'
+import PokemonInfo from './components/common/user'
 
 
 function App() {
   return(
 
     <>
-    <UserList></UserList>
+    <PokemonInfo url='https://pokeapi.co/api/v2/pokemon/pikachu'></PokemonInfo>
+      <PokemonInfo url='https://pokeapi.co/api/v2/pokemon/raichu'></PokemonInfo>
+            <PokemonInfo url='https://pokeapi.co/api/v2/pokemon/ratata'></PokemonInfo>
+
+
     </>
   )
 }

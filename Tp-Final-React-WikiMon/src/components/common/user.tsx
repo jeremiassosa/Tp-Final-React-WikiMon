@@ -1,21 +1,29 @@
 import useFetch from '../../hooks/useFetch';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { useEffect } from 'react';
 import type { PokeApiResponse } from '../../types/pokemon';
+import type { PokemonUrl } from '../../types/PokemonUrl';
 
 
 
+const PokemonInfo = ({ url }: PokemonUrl) => {
+  const { data, loading, error } = useFetch(url);
+  const [cachedPokemon, setCachedPokemon] = useLocalStorage<PokeApiResponse | null>("pokemon", null);
+  const pokemon = data as PokeApiResponse | null;
 
-const PokemonInfo = () => {
-const { data, loading, error } = useFetch('https://pokeapi.co/api/v2/pokemon/pikachu');
-
-    if (loading) {
-    return <p>Cargando Pokémon...</p>;
+  useEffect(() => {
+    if (pokemon) {
+      setCachedPokemon(pokemon);
     }
+  }, [pokemon, setCachedPokemon]);
+
+  if (loading) {
+    return <p>Cargando Pokémon...</p>;
+  }
 
   if (error) {
     return <p style={{ color: 'red' }}>Error: {error}</p>;
   }
-
-  const pokemon = data as PokeApiResponse| null;
 
   return (
     <div>
@@ -25,14 +33,15 @@ const { data, loading, error } = useFetch('https://pokeapi.co/api/v2/pokemon/pik
           <p><strong>Nombre:</strong> {pokemon.name}</p>
           <p><strong>ID:</strong> {pokemon.id}</p>
           <p><strong>Peso:</strong> {pokemon.weight}</p>
- <ul>
+          <ul>
             {pokemon.stats.map((item, index) => (
-            <li key={index}>
+              <li key={index}>
                 <strong>{item.stat.name}:</strong> {item.base_stat}
-            </li>
+              </li>
             ))}
-        </ul>        </div>
-    )}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
