@@ -1,5 +1,5 @@
 import './App.css'
-import { RenderPokemonsHomePage } from './services/Pokemon'
+import { RenderPokemonsHomePage } from './services/RenderPokemonHomePage'
 
 function App() {
   return(
