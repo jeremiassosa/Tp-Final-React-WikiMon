@@ -1,6 +1,5 @@
-import React from 'react';
 import useFetch from '../../hooks/useFetch';
-import type { PokeApiResponse } from '../../types/pokemon'; 
+import type { PokeApiResponse } from '../../types/pokemon';
 
 
 
