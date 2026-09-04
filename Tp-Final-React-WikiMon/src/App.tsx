@@ -1,6 +1,8 @@
 import './App.css'
 import { RenderPokemonsHomePage } from './services/RenderPokemonHomePage'
 
+
+
 function App() {
   return(
     <>
@@ -10,3 +12,6 @@ function App() {
 }
 
 export default App
+
+
+
