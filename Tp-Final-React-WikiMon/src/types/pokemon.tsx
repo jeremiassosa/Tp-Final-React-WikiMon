@@ -1,34 +1,33 @@
-interface ApiStat {
+export interface ApiStat {
     base_stat: number;
-    stat: {name: string};
+    stat: { name: string };
 }
 
-interface ApiType {
+export interface ApiType {
     type: {
-    name: string;
+        name: string;
     };
 }
 
-interface ApiMoveDetails {
-    move: {name: string , url: string;};
+export interface ApiMoveDetails {
+    move: { name: string; url: string };
     version_group_details: Array<{
-    level_learned_at: number;
-    move_learn_method: {
-    name: string;
-    };
-    version_group: {
-    name: string;
-    };
-}>;
+        level_learned_at: number;
+        move_learn_method: {
+            name: string;
+        };
+        version_group: {
+            name: string;
+        };
+    }>;
 }
 
-
-interface PokeApiResponse {
+export interface PokeApiResponse {
     id: number;
     name: string;
     height: number;
     weight: number;
     stats: ApiStat[];
     types: ApiType[];
-    moves: ApiMoveDetails[]
+    moves: ApiMoveDetails[];
 }
