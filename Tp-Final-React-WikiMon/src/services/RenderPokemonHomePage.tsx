@@ -166,3 +166,4 @@ export const RenderPokemonsHomePage: React.FC = () => {
     </div>
   );
 };
+export default RenderPokemonsHomePage;
