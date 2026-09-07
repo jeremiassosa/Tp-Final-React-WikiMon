@@ -54,7 +54,7 @@
 
 .input-name,
 .input-password ::placeholder {
-    color: #fcfcfc;
+    color: #000000;
 }
 
 input:focus {
