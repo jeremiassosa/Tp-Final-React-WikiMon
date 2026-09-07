@@ -38,7 +38,8 @@ const PokemonInfo = () => {
   const pokemon = stored ? JSON.parse(stored) : null;
 
   const [typeDetails, setTypeDetails] = useState({});
-  const [spriteIndex, setSpriteIndex] = useState();
+  const [spriteIndex, setSpriteIndex] = useState(0);
+  
 
   const reproducirGrito = () => {
     if (pokemon && pokemon.cries && pokemon.cries.latest) {
@@ -76,17 +77,17 @@ const PokemonInfo = () => {
 
   return (
     <div>
-      <h2>Información del Pokémon</h2>
+      <h2>Information about the pokemon</h2>
       {pokemon && (
         <div>
-          <p><strong>Nombre:</strong> {pokemon.name}</p>
+          <p><strong>Name:</strong> {pokemon.name}</p>
           
           {pokemon.cries && (
             <button 
               onClick={reproducirGrito} 
               style={{ margin: '10px 0', padding: '5px 10px', cursor: 'pointer' }}
             >
-              Escuchar Grito
+              Listen Cry
             </button>
           )}
 
@@ -102,9 +103,9 @@ const PokemonInfo = () => {
           <p>{spriteIndex + 1} / {sprites.length}</p>
 
           <p><strong>ID:</strong> {pokemon.id}</p>
-          <p><strong>Peso:</strong> {pokemon.weight}</p>
+          <p><strong>Weight:</strong> {pokemon.weight}</p>
 
-          <h3>Estadísticas</h3>
+          <h3>Stats</h3>
           <ul>
             {pokemon.stats.map((item, index) => (
               <li key={`stat-${index}`}>
@@ -123,17 +124,17 @@ const PokemonInfo = () => {
 
               return (
                 <React.Fragment key={`type-block-${index}`}>
-                  <p><strong>TIPO:</strong></p>
+                  <p><strong>TYPE:</strong></p>
                   <li>{item.type.name}</li>
 
-                  <p><strong>DEBIL CONTRA:</strong></p>
+                  <p><strong>WEAK AGAINST:</strong></p>
                   <li>{weaknesses}</li>
                 </React.Fragment>
               );
             })}
           </ul>
 
-          <h3>Habilidades</h3>
+          <h3>Habilities</h3>
           <ul>
             {pokemon.abilities.map((item, index) => (
               <li key={`ability-${index}`}>

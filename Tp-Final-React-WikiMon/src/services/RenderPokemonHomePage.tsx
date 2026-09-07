@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface PokemonListItem {
   name: string,
@@ -38,6 +39,7 @@ const PokemonCard: React.FC<{ name: string; url: string }> = ({ name, url }) => 
   const [loading, setLoading] = useState<boolean>(true);
   const [liked, setLiked] = useState<boolean>(false);
   const [selectedName, setSelectedName] = useState<string | null>(null);
+  const navigate = useNavigate();
   
   async function handleClick(name: string) {
   setSelectedName(name);
@@ -49,6 +51,8 @@ const PokemonCard: React.FC<{ name: string; url: string }> = ({ name, url }) => 
     const data: PokeApiFormResponse = await response.json();
 
     localStorage.setItem("pokemonSeleccionado", JSON.stringify(data));
+    navigate(`/pokemon/${name}`);
+
   } catch (error) {
     console.error(error);
   }
@@ -95,27 +99,29 @@ const PokemonCard: React.FC<{ name: string; url: string }> = ({ name, url }) => 
   if (!details) return <li>No se pudo cargar {name}</li>;
 
   return (
-    <button className="pokemonCard">
-      <button
-        type="button"
-        onClick={() => setLiked((prev) => !prev)}
-      >
-        {liked ? 
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z"/></svg>
-          : 
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg>
-        }
-      </button>
-      <p><strong>Id:</strong> {details.id}</p>
-      <img src={details.sprites.other.showdown.front_default} alt={details.name} />
-      <p><strong>Name:</strong> {details.name}</p>
-      <p>
-        <strong>Types:</strong> {details.types.map((types) => types.type.name).join(', ')}
-      </p>
+  <div className="pokemonCard" onClick={() => handleClick(details.name)}>
+    <button
+      type="button"
+      onClick={(e) => {
+        e.stopPropagation();
+        setLiked((prev) => !prev);
+      }}
+    >
+      {liked ? 
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z"/></svg>
+        : 
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg>
+      }
     </button>
-  );
+    <p><strong>Id:</strong> {details.id}</p>
+    <img src={details.sprites.other.showdown.front_default} alt={details.name} />
+    <p><strong>Name:</strong> {details.name}</p>
+    <p>
+      <strong>Types:</strong> {details.types.map((types) => types.type.name).join(', ')}
+    </p>
+  </div>
+);
 };
-
 export const RenderPokemonsHomePage: React.FC = () => {
   const [pokemonList, setPokemonList] = useState<PokemonListItem[]>([]);
   const [loading, setLoading] = useState<boolean>(false); 
