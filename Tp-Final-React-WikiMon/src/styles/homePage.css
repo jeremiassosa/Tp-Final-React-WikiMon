@@ -1,0 +1,16 @@
+.pokemonContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 20px;
+}
+.pokemonCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: 200px;
+}
+.pokemonCard img{
+    width: 100px;
+    height: 100px;
+}
