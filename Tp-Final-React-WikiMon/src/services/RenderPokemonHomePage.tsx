@@ -12,6 +12,8 @@ interface PokeApiListResponse {
   results: PokemonListItem[],
 }
 
+
+
 interface PokeApiFormResponse {
   id: number,
   name: string,
@@ -24,7 +26,8 @@ interface PokeApiFormResponse {
       name: string,
       url: string,
     };
-  }[];
+  }[],
+  cries:{}
 }
 
 
