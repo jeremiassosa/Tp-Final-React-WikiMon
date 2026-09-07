@@ -19,7 +19,7 @@ function Login() {
         <div className="login">
             <form onSubmit={onSubmit}>
                 <h1 className="tittle">WikiMon</h1>
-
+            
                 <input
                     className="input-name"
                     type="text"
