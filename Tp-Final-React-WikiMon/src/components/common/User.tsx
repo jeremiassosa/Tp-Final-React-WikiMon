@@ -1,5 +1,5 @@
 import useFetch from '../../hooks/useFetch';
-import type { PokeApiResponse } from '../../types/pokemon';
+import type { PokeApiListResponse } from '../../types/pokemon';
 
 
 
