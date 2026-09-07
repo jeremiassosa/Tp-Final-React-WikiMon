@@ -1,23 +1,28 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware';
+import UserData from '../data/UserData.json';
 
 
 interface LoginProps {
+    email: string;
     password: string;
-    name: string;
     setPasswordInput: (password: string) => void;
-    setNameInput: (name: string) => void;
+    setEmailInput: (email: string) => void;
+    logout: () => void;
 }
 
 export const useLoginForm = create<LoginProps>()(
 
     persist(
-    (set) => ({
-        password: '',
-        name: '',
-        setPasswordInput: (password) => set({ password }),
-        setNameInput: (name) => set({ name }),   
-        logout: () => set({ password: '', name: '' }),
-    }), { name: 'User-Storage' }
+
+        (set) => ({
+            email: UserData.credentials[0].email || '',
+            password: UserData.credentials[0].password || '',
+
+            setPasswordInput: (password) => set({ password }),
+            setEmailInput: (email) => set({ email }),
+            logout: () => set({ password: '', email: '' }),
+        }), 
+        { name: 'User-Storage' }
     )
-  )
+)

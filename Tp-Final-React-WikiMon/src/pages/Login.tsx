@@ -3,26 +3,29 @@ import "../styles/Login.css"
 
 function Login() {
 
-    const name = useLoginForm((state) => state.name)
+    const email = useLoginForm((state) => state.email)
     const password = useLoginForm((state) => state.password)
 
-    const setNameInput = useLoginForm((state) => state.setNameInput)
+    const setEmailInput = useLoginForm((state) => state.setEmailInput)
     const setPasswordInput = useLoginForm((state) => state.setPasswordInput)
 
 
     const onSubmit = (e: { preventDefault: () => void }) => {
         e.preventDefault();
     }
+
+    
     return (
         <div className="login">
             <form onSubmit={onSubmit}>
                 <h1 className="tittle">WikiMon</h1>
+
                 <input
                     className="input-name"
                     type="text"
-                    placeholder="Name"
-                    value={name}
-                    onChange={(e) => setNameInput(e.target.value)}
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmailInput(e.target.value)}
                 />
                 <input
                     className="input-password"
