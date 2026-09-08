@@ -81,12 +81,30 @@
   justify-content: center;
   align-items: center;
   padding: 0;
-  background-color: white;
-  border: 1px solid #ddd;
+  background-color: transparent;
+  border: none;
   border-radius: 50%;
 }
 
 .favoriteButton:hover {
+  background-color: #f5f5f5;
+}
+.deletedButton {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.deletedButton:hover {
   background-color: #f5f5f5;
 }
 
@@ -109,12 +127,33 @@
   background-color: #aaa;
   cursor: not-allowed;
 }
-.pokemonCard button{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: 0px;
+
+.resetButton {
+  padding: 10px 13px;
+  margin-bottom: 30px;
+  background-color: #e33535;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.resetButton:hover {
+  background-color: #c92525;
+}
+
+.searchBar{
+  position: absolute;
+  z-index: 100;
+  right: 33.5%;
+  padding: 9px 20px;
+  background-color: #e3353580;
+  border: 1px solid #e33535;
+  border-radius: 8px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 @media (max-width: 600px) {

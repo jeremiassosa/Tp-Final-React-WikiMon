@@ -62,7 +62,8 @@ input:focus {
 }
 
 .btn-get-into {
-    background-color: rgb(74, 74, 74);
+    background-color: #c92525;
+
     color: rgb(248, 247, 247);
     padding: 10px 20px;
     border: 1px solid #1472ff;
