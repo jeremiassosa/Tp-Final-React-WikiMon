@@ -1,36 +1,52 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 
-interface ThemeProps { 
-    Theme: boolean
-    ChangeTheme: () => void
+interface SettingsProps {
+  Theme: boolean
+  ChangeTheme: () => void
+  IsAuthenticated: boolean
+  Logout: () => void
 }
 
-export const ThemeContext = createContext<ThemeProps | undefined>(undefined)
+export const SettingsContext = createContext<SettingsProps | undefined>(undefined)
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
-    
+export function SettingsProvider({ children }: { children: ReactNode }) {
+ 
   const [Theme, setTheme] = useState<boolean>(() => {
     const savedTheme = localStorage.getItem('theme')
-    return savedTheme ? JSON.parse(savedTheme) : false 
+    return savedTheme ? JSON.parse(savedTheme) : false
   })
 
-  
   useEffect(() => {
     localStorage.setItem('theme', JSON.stringify(Theme))
   }, [Theme])
 
   const ChangeTheme = () => setTheme(!Theme)
 
+  
+  const [IsAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+   
+    return !!localStorage.getItem('user_token') 
+  })
+
+  
+  const Logout = () => {
+    localStorage.removeItem('user_token') 
+    setIsAuthenticated(false)             
+    window.location.href = '../pages/Login'       
+  }
+
   return (
-    <ThemeContext.Provider value={{ Theme, ChangeTheme }}>
+    <SettingsContext.Provider value={{ Theme, ChangeTheme, IsAuthenticated, Logout }}>
       {children}
-    </ThemeContext.Provider>
+    </SettingsContext.Provider>
   )
 }
-export function useTheme() {
-    const context = useContext(ThemeContext)
-    if (!context) {
-        throw new Error('useTheme debe usarse dentro de un ThemeContext.Provider')
-    }
-    return context
+
+export function useSettings() {
+  const context = useContext(SettingsContext)
+  if (!context) {
+    throw new Error('useSettings debe usarse dentro de un SettingsContext.Provider')
+  }
+  return context
 }
+

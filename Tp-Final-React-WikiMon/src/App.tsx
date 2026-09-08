@@ -1,11 +1,12 @@
-import Settings from './pages/Settings';
-import { ThemeProvider } from './context/SettingsContext';
+import { Settings } from './pages/Settings';
+
+import { SettingsProvider } from './context/SettingsContext';
 
 function App() {
   return (
-    <ThemeProvider>
+    <SettingsProvider>
       <Settings />
-    </ThemeProvider>
+    </SettingsProvider>
   )
 }
 

@@ -1,29 +1,14 @@
-import { useTheme } from "../context/SettingsContext";
-import '../styles/Settings.css'
+import { useSettings } from '../context/SettingsContext' 
 
+export function Settings() {
+  const { Logout, ChangeTheme } = useSettings()
 
-function Settings() {
-
-    const { Theme, ChangeTheme } = useTheme()
-
-    return (
-        <div>
-            <section className={Theme ? "blackMode" : "whiteMode"}>
-                <p>The Theme now is {Theme ? "Oscuro" : "Claro"}</p>
-
-                <button
-                    type="button"
-                    className="counter addition"
-                    onClick={ChangeTheme}
-                >
-                    Change Theme
-                </button>
-            </section>
-
-
-        </div>
-
-    );
+  return (
+    <div>
+      <button onClick={ChangeTheme}>Cambiar Tema</button>
+      <button onClick={Logout}> Cerrar Sesión</button>
+    </div>
+  )
 }
 
-export default Settings;
+
