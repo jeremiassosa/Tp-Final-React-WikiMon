@@ -1,17 +1,22 @@
-import PokemonsPage from "./pages/homePage"
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { RenderPokemonsHomePage } from "./components/common/pokemon";
+import PokemonsPage from "./pages/homePage";
 import Login from './pages/Login';
-import { RenderPokemonsHomePage } from './services/RenderPokemonHomePage'
+import PokemonInfo from './components/common/User';
 
 function App() {
   return (
-    <>
-      <RenderPokemonsHomePage />
-      <Login />
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        
+        <Route path="/HomePage" element={<RenderPokemonsHomePage />} />
+        
+        <Route path="/pokemon/:name" element={<PokemonInfo />} />
+
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
-
-
-
+export default App;
