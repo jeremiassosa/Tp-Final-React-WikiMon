@@ -1,9 +1,9 @@
-import { RenderPokemonsHomePage } from './services/RenderPokemonHomePage'
+import PokemonsPage from "./pages/homePage"
 
 function App() {
   return(
     <>
-
+     <PokemonsPage />
     </>
   )
 }

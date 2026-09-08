@@ -3,7 +3,7 @@ import { RenderPokemonsHomePage } from '../components/common/pokemon';
 
 const PokemonsPage: React.FC = () => {
   return (
-    <main className="page-wrapper">
+    <main>
       <RenderPokemonsHomePage />
     </main>
   );
