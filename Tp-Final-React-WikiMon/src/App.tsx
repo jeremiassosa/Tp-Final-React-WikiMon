@@ -1,12 +1,12 @@
-import PokemonsPage from "./pages/homePage"
-import Login from './pages/Login';
-import { RenderPokemonsHomePage } from './services/RenderPokemonHomePage'
+
+import PokemonsPage from './pages/homePage';
+
+
 
 function App() {
   return (
     <>
-      <RenderPokemonsHomePage />
-      <Login />
+      <PokemonsPage/>
     </>
   )
 }
