@@ -27,5 +27,7 @@ export interface PokeApiFormResponse {
       url: string;
     };
   }[];
+    cries:{}
+
 }
 

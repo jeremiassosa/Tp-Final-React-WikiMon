@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function collectFrontSprites(sprites: Record<string, any>): string[] {
   const result: string[] = [];
@@ -38,6 +39,8 @@ const PokemonInfo = () => {
 
   const [typeDetails, setTypeDetails] = useState({});
   const [spriteIndex, setSpriteIndex] = useState(0);
+      const navigate = useNavigate();
+
   
 
   const reproducirGrito = () => {
@@ -75,8 +78,12 @@ const PokemonInfo = () => {
   }
 
   return (
+    
     <div>
+              <button onClick={()=>navigate(-1)}>REGRESAR ATRAS</button>
+
       <h2>Information about the pokemon</h2>
+      
       {pokemon && (
         <div>
           <p><strong>Name:</strong> {pokemon.name}</p>
