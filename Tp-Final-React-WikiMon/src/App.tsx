@@ -1,12 +1,13 @@
-import { Settings } from './pages/Settings';
 
-import { SettingsProvider } from './context/SettingsContext';
+import PokemonsPage from './pages/homePage';
+
+
 
 function App() {
   return (
-    <SettingsProvider>
-      <Settings />
-    </SettingsProvider>
+    <>
+      <PokemonsPage/>
+    </>
   )
 }
 
