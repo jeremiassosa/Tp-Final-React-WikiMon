@@ -1,12 +1,11 @@
-import Login from './pages/Login';
-import { RenderPokemonsHomePage } from './services/RenderPokemonHomePage'
+import Settings from './pages/Settings';
+import { ThemeProvider } from './context/SettingsContext';
 
 function App() {
   return (
-    <>
-      <RenderPokemonsHomePage />
-      <Login />
-    </>
+    <ThemeProvider>
+      <Settings />
+    </ThemeProvider>
   )
 }
 
