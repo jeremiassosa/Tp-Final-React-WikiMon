@@ -11,6 +11,7 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ name, url }) => {
   const [details, setDetails] = useState<PokeApiFormResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [liked, setLiked] = useState<boolean>(false);
+  const [deleted, setDeleted] = useState<boolean>(false);
 
   useEffect(() => {
     fetchPokemonDetails(url)
@@ -18,13 +19,18 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ name, url }) => {
         setDetails(data);
         const savedFavorites = localStorage.getItem('pokemonFavorites');
         const favoritesArray: number[] = savedFavorites ? JSON.parse(savedFavorites) : [];
+        const savedDeleted = localStorage.getItem('pokemonDeleted');
+        const deletedArray: number[] = savedDeleted ? JSON.parse(savedDeleted) : [];
+
         setLiked(favoritesArray.includes(data.id));
+        setDeleted(deletedArray.includes(data.id));
         setLoading(false);
       })
       .catch(() => {
         setLoading(false);
       });
   }, [url]);
+
 
   useEffect(() => {
     if (!details) return;
@@ -42,12 +48,40 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ name, url }) => {
     localStorage.setItem('pokemonFavorites', JSON.stringify(favoritesArray));
   }, [liked, details]);
 
+
+  useEffect(() => {
+    if (!details) return;
+
+    const savedDelete = localStorage.getItem('pokemonDeleted');
+    let deleteArray: number[] = savedDelete ? JSON.parse(savedDelete) : [];
+
+    if (deleted) {
+      if (!deleteArray.includes(details.id)) {
+        deleteArray.push(details.id);
+      }
+    } else {
+      deleteArray = deleteArray.filter((deleteId) => deleteId !== details.id);
+    }
+    localStorage.setItem('pokemonDeleted', JSON.stringify(deleteArray));
+
+
+  }, [deleted, details]);
+
   if (loading) return <li>Cargando {name}...</li>;
   if (!details) return <li>No se pudo cargar {name}</li>;
+  if (deleted) return null;
 
   return (
     <button className="pokemonCard">
+      <button className='deletedButton'
+              type="button"
+              onClick={() => setDeleted((prev) => !prev)}
+              >
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323"><path d="M200-440v-80h560v80H200Z"/></svg>
+      </button>
+
       <button
+        className='favoriteButton'
         type="button"
         onClick={() => setLiked((prev) => !prev)}
       >
