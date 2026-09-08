@@ -32,7 +32,6 @@ function collectFrontSprites(sprites: Record<string, any>): string[] {
   return [...new Set(result)];
 }
 
-
 const PokemonInfo = () => {
   const stored = localStorage.getItem('pokemonSeleccionado');
   const pokemon = stored ? JSON.parse(stored) : null;
