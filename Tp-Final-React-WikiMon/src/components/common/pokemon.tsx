@@ -54,10 +54,13 @@ export const RenderPokemonsHomePage: React.FC = () => {
       <div className="center">
         <h3>Pokémons</h3>
       </div>
-      <div>
-        <button onClick={() => resetDeletedStorage()}>Reset</button>
-      </div>
-      <div className="center searchContainer">
+      <div className=''>
+        <button onClick={() => resetDeletedStorage()}
+                className='resetButton'        
+        >
+          Reset
+        </button>
+        
         <input
           type="text"
           placeholder="Search Pokémon..."

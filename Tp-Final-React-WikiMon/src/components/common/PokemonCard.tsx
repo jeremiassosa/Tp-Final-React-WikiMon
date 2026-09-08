@@ -92,7 +92,10 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ name, url }) => {
         }
       </button>
       <p><strong>Id:</strong> {details.id}</p>
-      <img src={details.sprites.other.showdown.front_default} alt={details.name} />
+      <img
+      className='pokemonImage' 
+      src={details.sprites.other.showdown.front_default} 
+      alt={details.name} />
       <p><strong>Name:</strong> {details.name}</p>
       <p>
         <strong>Types:</strong> {details.types.map((types) => types.type.name).join(', ')}
