@@ -54,7 +54,7 @@ export const RenderPokemonsHomePage: React.FC = () => {
       <div className="center">
         <h3>Pokémons</h3>
       </div>
-      <div className=''>
+      <div className='pokemonSearchContainer'>
         <button onClick={() => resetDeletedStorage()}
                 className='resetButton'        
         >
