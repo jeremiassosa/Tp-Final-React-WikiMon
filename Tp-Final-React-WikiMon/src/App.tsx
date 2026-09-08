@@ -1,12 +1,12 @@
-import './App.css'
-import PokemonInfo from './components/common/user'
+import PokemonsPage from "./pages/homePage"
+import Login from './pages/Login';
 import { RenderPokemonsHomePage } from './services/RenderPokemonHomePage'
 
 function App() {
-  return(
+  return (
     <>
-      <RenderPokemonsHomePage/>
-      <PokemonInfo/>
+      <RenderPokemonsHomePage />
+      <Login />
     </>
   )
 }

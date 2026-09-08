@@ -1,3 +1,9 @@
+import useFetch from '../../hooks/useFetch';
+import type { PokeApiListResponse } from '../../types/pokemon';
+
+
+
+
 const PokemonInfo = () => {
   const stored = localStorage.getItem('pokemonSeleccionado');
   const pokemon = stored ? JSON.parse(stored) : null;
