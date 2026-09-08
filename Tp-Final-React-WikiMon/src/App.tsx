@@ -1,3 +1,4 @@
+import PokemonsPage from "./pages/homePage"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { RenderPokemonsHomePage } from './services/RenderPokemonHomePage';
 import Login from './pages/Login';
