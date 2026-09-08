@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import type { PokemonListItem } from '../../types/pokemon';
 import { fetchPokemonList } from '../../services/pokeAPI';
 import { PokemonCard } from './PokemonCard';
+import { useNavigate } from 'react-router-dom';
 
 export const RenderPokemonsHomePage: React.FC = () => {
   const [pokemonList, setPokemonList] = useState<PokemonListItem[]>([]);
   const [loading, setLoading] = useState<boolean>(false); 
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
+    const navigate = useNavigate();
+
 
   useEffect(() => {
     fetchMorePokemon(0);
@@ -57,6 +60,9 @@ export const RenderPokemonsHomePage: React.FC = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="searchBar"
         />
+      </div>
+      <div>
+        <button onClick={()=>navigate(-1)}>REGRESAR ATRAS</button>
       </div>
 
       <section className="pokemonContainer">

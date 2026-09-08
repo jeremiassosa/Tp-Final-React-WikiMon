@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import type { PokeApiFormResponse } from '../../types/pokemon';
 import { fetchPokemonDetails } from '../../services/pokeAPI';
+import { useNavigate } from 'react-router-dom';
 
 interface PokemonCardProps {
   name: string;
@@ -11,6 +12,8 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ name, url }) => {
   const [details, setDetails] = useState<PokeApiFormResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [liked, setLiked] = useState<boolean>(false);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     fetchPokemonDetails(url)
@@ -46,7 +49,8 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ name, url }) => {
   if (!details) return <li>No se pudo cargar {name}</li>;
 
   return (
-    <button className="pokemonCard">
+    <button className="pokemonCard" onClick={() =>     navigate(`/pokemon/${name}`) }>
+      
       <button
         type="button"
         onClick={() => setLiked((prev) => !prev)}
