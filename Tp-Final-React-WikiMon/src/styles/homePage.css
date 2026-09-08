@@ -143,18 +143,58 @@
   background-color: #c92525;
 }
 
-.searchBar{
-  position: absolute;
-  z-index: 100;
-  right: 33.5%;
-  padding: 9px 20px;
-  background-color: #e3353580;
-  border: 1px solid #e33535;
-  border-radius: 8px;
+.pokemonSearchContainer {
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  position: relative;      
+  width: 100%;
+  margin-bottom: 30px;     
+}
+
+.resetButton, .searchBar {
+  box-sizing: border-box;
+  height: 42px; 
+}
+
+.resetButton {
+  margin:0;
+  position: absolute;      
+  left: 0;                 
+  background-color: #e33535;
   color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0 13px; 
   font-size: 15px;
   font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
 }
+
+.resetButton:hover {
+  background-color: #c92525;
+}
+
+.searchBar {
+  width: 50%;
+  max-width: 350px;        
+  padding: 0 20px; 
+  background-color: #e3353580; 
+  border: 1px solid #e33535;
+  border-radius: 8px;
+  color: #333;
+  font-size: 15px;
+  font-weight: bold;
+  outline: none;
+}
+
+.searchBar::placeholder {
+  color: #555;             
+}
+
 
 @media (max-width: 600px) {
   .pokedexHome {
