@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { RenderPokemonsHomePage } from "./components/common/pokemon";
 import Login from './pages/Login';
-import PokemonInfo from './components/common/User';
+import PokemonInfo from './components/common/IndividualPokemon';
 import { PokemonTabs } from './pages/favsAndDeleted';
 import SettingsWithProvider from './components/common/settingsWithProvider';
-import { useLoginForm } from './store/AuthStore'; // ⚠️ REEMPLAZA ESTO con la ruta real de tu archivo de Zustand
+import { useLoginForm } from './store/AuthStore'; 
 
 
 const ProtectedRoute = () => {
