@@ -39,9 +39,12 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
 
   const Logout = () => {
     localStorage.removeItem('user_token')
+    localStorage.removeItem('theme')
     setIsAuthenticated(false)
     window.location.href = '../pages/Login'
-  }
+    window.confirm("¿Are you sure you want to log out??")
+    
+    }
 
   return (
     <SettingsContext.Provider value={{ Theme, ChangeTheme, IsAuthenticated, Logout }}>
