@@ -1,4 +1,6 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
+import { useNavigate } from 'react-router-dom';
+
 
 interface SettingsProps {
   Theme: boolean
@@ -10,9 +12,12 @@ interface SettingsProps {
 export const SettingsContext = createContext<SettingsProps | undefined>(undefined)
 
 export function SettingsProvider({ children }: { children: ReactNode }) {
+    const navigate = useNavigate();
+
 
   const [Theme, setTheme] = useState<boolean>(() => {
     const savedTheme = localStorage.getItem('theme')
+
     return savedTheme ? JSON.parse(savedTheme) : false
   })
 
@@ -38,9 +43,9 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
   })
 
   const Logout = () => {
-    localStorage.removeItem('user_token')
++    localStorage.removeItem('user_token')
     setIsAuthenticated(false)
-    window.location.href = '../pages/Login'
+    navigate(`/Login`);
   }
 
   return (
