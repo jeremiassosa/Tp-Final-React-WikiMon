@@ -1,6 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { RenderPokemonsHomePage } from "./components/common/pokemon";
-import PokemonsPage from "./pages/homePage";
 import Login from './pages/Login';
 import PokemonInfo from './components/common/User';
 import { PokemonTabs } from './pages/favsAndDeleted';

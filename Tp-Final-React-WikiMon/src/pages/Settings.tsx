@@ -9,7 +9,7 @@ export function Settings() {
   
 
   return (
-    <div>
+    <div className='center'>
       <button onClick={()=>navigate(-1)}>GO BACK</button>
       <div className="buttons">
         <p>Click here to change your page's theme.</p>
