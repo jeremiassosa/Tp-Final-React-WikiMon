@@ -1,11 +1,16 @@
 import { useSettings } from '../context/SettingsContext'
 import '../styles/Settings.css'
+import { useNavigate } from 'react-router-dom';
+
 
 export function Settings() {
   const { Logout, ChangeTheme } = useSettings()
+    const navigate = useNavigate();
+  
 
   return (
     <div>
+      <button onClick={()=>navigate(-1)}>GO BACK</button>
       <div className="buttons">
         <p>Click here to change your page's theme.</p>
         <button

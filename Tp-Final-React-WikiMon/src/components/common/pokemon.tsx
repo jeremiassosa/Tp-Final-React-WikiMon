@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import type { PokemonListItem } from '../../types/pokemon';
 import { fetchPokemonList } from '../../services/pokeAPI';
 import { PokemonCard } from './PokemonCard';
+import type { PokemonListItem } from '../../types/pokemon';
+import { useNavigate } from 'react-router-dom';
+
 
 export const RenderPokemonsHomePage: React.FC = () => {
   const [pokemonList, setPokemonList] = useState<PokemonListItem[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
+    const navigate = useNavigate(); 
+
 
   useEffect(() => {
     fetchMorePokemon(0);
@@ -52,6 +56,12 @@ export const RenderPokemonsHomePage: React.FC = () => {
   return (
     <div className="pokedexHome">
       <div className="center">
+              <button onClick={()=>navigate(`/Settings`)}>SETTINGS</button>
+
+              <button onClick={()=>navigate(-1)}>GO BACK</button>
+              <button onClick={()=>navigate(`/Favoritos/Y/Eliminados`)}>FAVORITES AND DELETED</button>
+
+
         <h3>Pokémons</h3>
       </div>
       <div className='pokemonSearchContainer'>

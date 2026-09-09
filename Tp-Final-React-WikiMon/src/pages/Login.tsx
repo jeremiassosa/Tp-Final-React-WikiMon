@@ -1,5 +1,7 @@
 import { useLoginForm } from "../store/AuthStore";
 import "../styles/Login.css"
+import { useNavigate } from 'react-router-dom'; 
+
 
 function Login() {
     const email = useLoginForm((state) => state.email)
@@ -9,6 +11,10 @@ function Login() {
     const setEmailInput = useLoginForm((state) => state.setEmailInput)
     const setPasswordInput = useLoginForm((state) => state.setPasswordInput)
     const loginSubmit = useLoginForm((state) => state.loginSubmit) 
+    const navigate = useNavigate();
+
+
+
 
 
     const onSubmit = (e: React.FormEvent) => {
@@ -45,7 +51,7 @@ function Login() {
                     value={password}
                     onChange={(e) => setPasswordInput(e.target.value)}
                 />
-                <button className="btn-get-into" type="submit">
+                <button className="btn-get-into" type="submit" onClick={()=> (navigate(`/HomePage`))}>
                     Get Into
                 </button>
             </form>
