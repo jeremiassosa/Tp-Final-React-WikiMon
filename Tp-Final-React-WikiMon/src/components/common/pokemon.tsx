@@ -51,6 +51,8 @@ export const RenderPokemonsHomePage: React.FC = () => {
     <div className="pokedexHome">
       <div className="center">
               <button onClick={()=>navigate(-1)}>REGRESAR ATRAS</button>
+              <button onClick={()=>navigate(`/Favoritos/Y/Eliminados`)}>FAVORITOS Y ELIMINADOS</button>
+
 
         <h3>Pokémons</h3>
       </div>
