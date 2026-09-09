@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { RenderPokemonsHomePage } from "./components/common/pokemon";
 import PokemonsPage from "./pages/homePage";
 import Login from './pages/Login';
-import PokemonInfo from './components/common/User';
+import PokemonInfo from './components/common/IndividualPokemon';
 import { PokemonTabs } from './pages/favsAndDeleted';
 import SettingsWithProvider from './components/common/settingsWithProvider';
 
