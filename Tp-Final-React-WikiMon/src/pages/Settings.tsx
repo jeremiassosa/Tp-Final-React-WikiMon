@@ -11,7 +11,7 @@ export function Settings() {
         <button
           className="change-theme-button"
           onClick={ChangeTheme}>Change Theme</button>
-          <p>Click here to log out.</p>
+        <p>Click here to log out.</p>
         <button
           className="logout-button"
           onClick={Logout}>Logout</button>

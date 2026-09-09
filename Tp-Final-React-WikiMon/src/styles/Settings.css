@@ -9,7 +9,7 @@
 
 .blackMode {
   background: linear-gradient(to bottom, #4a0000, #ff1a1a, #ffccd5);
-  color: #ffffff;
+  color: #060606;
   min-height: 100vh;
   display: flex;
   justify-content: center;
