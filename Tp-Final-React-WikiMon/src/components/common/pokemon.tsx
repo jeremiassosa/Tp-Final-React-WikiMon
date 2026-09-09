@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const RenderPokemonsHomePage: React.FC = () => {
   const [pokemonList, setPokemonList] = useState<PokemonListItem[]>([]);
-  const [loading, setLoading] = useState<boolean>(false); 
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
     const navigate = useNavigate(); 
@@ -16,7 +16,7 @@ export const RenderPokemonsHomePage: React.FC = () => {
   useEffect(() => {
     fetchMorePokemon(0);
   }, []);
-  
+
   function fetchMorePokemon(currentCountPokemon: number) {
     setLoading(true);
     fetchPokemonList(currentCountPokemon)
@@ -39,6 +39,12 @@ export const RenderPokemonsHomePage: React.FC = () => {
       });
   }
 
+  function resetDeletedStorage() {
+    localStorage.setItem('pokemonDeleted', '');
+    setPokemonList([]);
+    fetchMorePokemon(0);
+  }
+
   const filteredPokemonList = pokemonList.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -56,8 +62,13 @@ export const RenderPokemonsHomePage: React.FC = () => {
 
         <h3>Pokémons</h3>
       </div>
-
-      <div className="center searchContainer">
+      <div className='pokemonSearchContainer'>
+        <button onClick={() => resetDeletedStorage()}
+                className='resetButton'        
+        >
+          Reset
+        </button>
+        
         <input
           type="text"
           placeholder="Search Pokémon..."
@@ -66,25 +77,19 @@ export const RenderPokemonsHomePage: React.FC = () => {
           className="searchBar"
         />
       </div>
-
       <section className="pokemonContainer">
         {filteredPokemonList.map((pokemon) => (
-          <PokemonCard
-            key={pokemon.name}
-            name={pokemon.name}
-            url={pokemon.url}
-          />
+          <PokemonCard key={pokemon.name} name={pokemon.name} url={pokemon.url} />
         ))}
       </section>
-
       {searchTerm === '' && (
         <div className="center">
           <button
-            className='loadMore'
+            className="loadMore"
             onClick={() => fetchMorePokemon(pokemonList.length)}
             disabled={loading}
           >
-            {loading ? "Cargando..." : "More pokemon"}
+            {loading ? 'Loading...' : 'More pokemon'}
           </button>
         </div>
       )}
