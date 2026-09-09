@@ -231,3 +231,106 @@
   }
 }
 
+
+
+/* Style types pokemon */
+
+.type {
+  font-family: 'Chakra Petch';
+  font-weight: 700;
+  font-size: 10px;
+  padding: 3px 3px;
+  border-radius: 8px;
+  margin-right: 3px;
+  text-transform: uppercase; 
+}
+
+.normal {
+  color: white;
+  background-color: rgba(96, 97, 98, 0.642);
+}
+
+.fire {
+  color: white;
+  background-color: rgb(255, 66, 32);
+}
+
+.water {
+  color: white;
+  background-color: rgb(0, 136, 195);
+}
+
+.grass {
+  color: white;
+  background-color: rgb(74, 194, 42);
+}
+
+.electric {
+  color: black;
+  background-color: rgb(255, 204, 51);
+}
+
+.ice {
+  color: black;
+  background-color: rgb(102, 204, 255);
+}
+
+.fighting {
+  color: white;
+  background-color: rgb(255, 128, 0);
+}
+
+.poison {
+  color: white;
+  background-color: rgb(153, 102, 204);
+}
+
+.ground {
+  color: white;
+  background-color: rgb(153, 115, 0);
+}
+
+.flying {
+  color: white;
+  background-color: rgb(153, 153, 255);
+}
+
+.psychic {
+  color: white;
+  background-color: rgb(255, 102, 153);
+}
+
+.bug {
+  color: white;
+  background-color: rgb(153, 170, 34);
+}
+
+.rock {
+  color: white;
+  background-color: rgb(187, 170, 102);
+}
+
+.ghost {
+  color: white;
+  background-color: rgb(102, 102, 187);
+}
+
+.dragon {
+  color: white;
+  background-color: rgb(119, 102, 255);
+}
+
+.dark {
+  color: white;
+  background-color: rgb(119, 85, 68);
+}
+
+.steel {
+  color: black;
+  background-color: rgb(170, 170, 187);
+}
+
+.fairy {
+  color: white;
+  background-color: rgb(238, 153, 238);
+}
