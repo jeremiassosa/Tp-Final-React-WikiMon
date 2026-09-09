@@ -25,3 +25,56 @@ img {
   justify-self: center;
   align-items: center;
 }
+
+.navContainer {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 10px 20px;     
+  width: 100%;            
+}
+
+.navButtons {
+  background-color: #e33535;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px; 
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  display: flex;
+  align-items: center;
+}
+
+.navButtons:hover {
+  background-color: #b52626;
+}
+
+.pokedexHome {
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.whiteMode {
+  background: linear-gradient(to bottom, #1300ba, #1472ff, #acd7ff);
+  color: #000000;
+   min-height: 100vh;
+}
+
+.blackMode {
+  background: linear-gradient(to bottom, #4a0000, #ff1a1a, #ffccd5);
+  color: #060606;
+  min-height: 100vh;
+}
+
+.blackMode .pokemonCard {
+  background-color: #000000b6;
+  color: white;
+}
+.whiteMode .pokemonCard {
+  background-color: #ffffffb6;
+  color: black;
+}
+
