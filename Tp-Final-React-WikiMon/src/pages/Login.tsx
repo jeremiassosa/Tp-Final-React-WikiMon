@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 
 function Login() {
+    document.body.classList.add('whiteMode')
+    document.body.classList.remove('blackMode')
     const email = useLoginForm((state) => state.email)
     const password = useLoginForm((state) => state.password)
     const error = useLoginForm((state) => state.error) 
@@ -12,7 +14,6 @@ function Login() {
     const setPasswordInput = useLoginForm((state) => state.setPasswordInput)
     const loginSubmit = useLoginForm((state) => state.loginSubmit) 
     const navigate = useNavigate();
-    localStorage.setItem('theme', 'false');
 
     const onSubmit = (e: React.FormEvent) => {
         e.preventDefault();
