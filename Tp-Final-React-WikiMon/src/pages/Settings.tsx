@@ -5,7 +5,7 @@ export function Settings() {
   const { Logout, ChangeTheme } = useSettings()
 
   return (
-    <div>
+    <div className='center'>
       <div className="buttons">
         <p>Click here to change your page's theme.</p>
         <button
