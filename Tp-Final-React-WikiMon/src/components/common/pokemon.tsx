@@ -62,9 +62,7 @@ export const RenderPokemonsHomePage: React.FC = () => {
       </div>
 
       <div className="center">
-
-
-        <h3>Pokémons</h3>
+        <h3 style={{color: 'white'}}>Pokémons</h3>
       </div>
       <div className='pokemonSearchContainer'>
         <button onClick={() => resetDeletedStorage()}

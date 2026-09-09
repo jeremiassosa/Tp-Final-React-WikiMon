@@ -26,7 +26,6 @@
 }
 
 .login {
-    background: linear-gradient(to bottom, #1300ba, #1472ff, #acd7ff);
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -12,15 +12,10 @@ function Login() {
     const setPasswordInput = useLoginForm((state) => state.setPasswordInput)
     const loginSubmit = useLoginForm((state) => state.loginSubmit) 
     const navigate = useNavigate();
-
-
-
-
+    localStorage.setItem('theme', 'false');
 
     const onSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        
-        
         const success = loginSubmit(); 
         
         if (success) {
