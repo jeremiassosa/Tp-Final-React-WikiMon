@@ -67,7 +67,7 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ name, url }) => {
 
   }, [deleted, details]);
 
-  if (loading) return <li>Cargando {name}...</li>;
+  if (loading) return (<div className='center' style={{margin: '12px'}}><img src="./loading.gif" alt="Pokemon Loadings" /></div>);
   if (!details) return <li>No se pudo cargar {name}</li>;
   if (deleted) return null;
 
