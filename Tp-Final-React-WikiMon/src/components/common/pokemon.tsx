@@ -58,7 +58,7 @@ export const RenderPokemonsHomePage: React.FC = () => {
       <div className='navContainer'>
         <button className='navButtons' onClick={()=>navigate(`/Settings`)}>SETTINGS</button>
         <button className='navButtons' onClick={()=>navigate(-1)}>GO BACK</button>
-        <button className='navButtons' onClick={()=>navigate(`/Favoritos/Y/Eliminados`)}>FAVORITES AND DELETED</button>
+        <button className='navButtons' onClick={()=>navigate(`Favourites/and/Eliminated`)}>FAVORITES AND DELETED</button>
       </div>
 
       <div className="center">
