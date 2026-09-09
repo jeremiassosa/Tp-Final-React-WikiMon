@@ -1,12 +1,63 @@
 .whiteMode {
-  background-color: #ffffff;
+  background: linear-gradient(to bottom, #1300ba, #1472ff, #acd7ff);
   color: #000000;
-  min-height: 100vh; 
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blackMode {
+  background: linear-gradient(to bottom, #4a0000, #ff1a1a, #ffccd5);
+  color: #060606;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
-.blackMode {
-  background-color: #121212;
+.buttons {
+  box-sizing: border-box; 
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
+  
+  background-color: #ffffff; 
+  padding: 30px;
+  border-radius: 12px; 
+  border: 1px solid #df0000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); 
+  width: 100%;
+  max-width: 320px;
+}
+
+.change-theme-button, 
+.logout-button {
+  box-sizing: border-box;
+  width: 100%; 
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background-color: #df0000;
   color: #ffffff;
-  min-height: 100vh;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  font-weight: 500;
+}
+
+
+.change-theme-button:hover, 
+.logout-button:hover {
+  background-color: #b30000; 
+}
+
+
+.logout-button {
+  background-color: #333333; 
+}
+
+.logout-button:hover {
+  background-color: #111111;
 }
