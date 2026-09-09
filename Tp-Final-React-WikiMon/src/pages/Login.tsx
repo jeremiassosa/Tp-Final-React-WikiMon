@@ -18,7 +18,7 @@ function Login() {
         const success = loginSubmit(); 
         
         if (success) {
-            console.log("¡Sesión iniciada correctamente!");
+            console.log("Logged in successfully!");
             
         }
     }
