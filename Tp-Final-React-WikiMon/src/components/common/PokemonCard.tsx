@@ -86,6 +86,8 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ name, url }) => {
     navigate(`/pokemon/${name}`);
   };
 
+  }, [deleted, details]);
+
   if (loading) return <li>Cargando {name}...</li>;
   if (!details) return <li>No se pudo cargar {name}</li>;
   if (deleted) return null;
@@ -118,9 +120,13 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ name, url }) => {
         alt={details.name}
       />
       <p><strong>Name:</strong> {details.name}</p>
-      <p>
-        <strong>Types:</strong> {details.types.map((t) => t.type.name).join(', ')}
-      </p>
+      <div style={{ textTransform: 'uppercase' }}>
+      {details.types.map((countType) => (
+        <span className={`type ${countType.type.name}`}>
+          {countType.type.name}
+        </span>
+      ))}
+    </div>
     </div>
   );
 };
