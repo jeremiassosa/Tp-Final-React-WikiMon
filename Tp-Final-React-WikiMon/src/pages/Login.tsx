@@ -15,19 +15,19 @@ function Login() {
     const loginSubmit = useLoginForm((state) => state.loginSubmit) 
     const navigate = useNavigate();
 
-    const onSubmit = (e: React.FormEvent) => {
+    const checkIn = (e: React.FormEvent) => {
         e.preventDefault();
         const success = loginSubmit(); 
         
         if (success) {
             console.log("Logged in successfully!");
-            
+            navigate(`/HomePage`)
         }
     }
 
     return (
         <div className="login">
-            <form onSubmit={onSubmit}>
+            <form onSubmit={checkIn}>
                 <h1 className="tittle">WikiMon</h1>
             
                 
@@ -47,7 +47,7 @@ function Login() {
                     value={password}
                     onChange={(e) => setPasswordInput(e.target.value)}
                 />
-                <button className="btn-get-into" type="submit" onClick={()=> (navigate(`/HomePage`))}>
+                <button className="btn-get-into" type="submit" onClick={()=> checkIn()}>
                     Get Into
                 </button>
             </form>

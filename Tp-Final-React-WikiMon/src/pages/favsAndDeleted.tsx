@@ -14,6 +14,20 @@ export const PokemonTabs: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+    useEffect(() => {
+  
+      const Theme = localStorage.getItem('theme')
+  
+      if (Theme) {
+        document.body.classList.add('blackMode')
+        document.body.classList.remove('whiteMode')
+      }
+      else {
+        document.body.classList.add('whiteMode')
+        document.body.classList.remove('blackMode')
+      }
+    }, [])
+
   useEffect(() => {
     const storageKey = STORAGE_KEYS[tabActiva];
     const saved = localStorage.getItem(storageKey);

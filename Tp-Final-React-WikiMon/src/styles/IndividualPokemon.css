@@ -1,11 +1,11 @@
 :root {
-  --bg-app: #f4f7f6;
-  --bg-container: #ffffff;
-  --primary-color: #3b4cca;
-  --primary-hover: #2a3a8c;
-  --text-dark: #1e293b;
-  --text-light: #64748b;
-  --border-color: #e2e8f0;
+  --bg-app: #F4F7F6;
+  --bg-container: #FFFFFF;
+  --primary-color: #3B4CCA;
+  --primary-hover: #2A3A8C;
+  --text-dark: #1E293B;
+  --text-light: #64748B;
+  --border-color: #E2E8F0;
   --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
@@ -17,27 +17,26 @@
   width: 100vw;
   box-sizing: border-box;
   padding: 20px;
-  transition: background 0.5s ease;
 }
 
-.screen-wrapper.grass { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); }
-.screen-wrapper.fire { background: linear-gradient(135deg, #fbe9e7 0%, #ffccbc 100%); }
-.screen-wrapper.water { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); }
-.screen-wrapper.bug { background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%); }
-.screen-wrapper.normal { background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%); }
-.screen-wrapper.poison { background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); }
-.screen-wrapper.electric { background: linear-gradient(135deg, #fffde7 0%, #fff9c4 100%); }
-.screen-wrapper.ground { background: linear-gradient(135deg, #efebe9 0%, #d7ccc8 100%); }
-.screen-wrapper.fairy { background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); }
-.screen-wrapper.fighting { background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%); }
-.screen-wrapper.psychic { background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); }
-.screen-wrapper.rock { background: linear-gradient(135deg, #d7ccc8 0%, #bcaaa4 100%); }
-.screen-wrapper.ghost { background: linear-gradient(135deg, #ede7f6 0%, #d1c4e9 100%); }
-.screen-wrapper.ice { background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%); }
-.screen-wrapper.dragon { background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%); }
-.screen-wrapper.dark { background: linear-gradient(135deg, #cfd8dc 0%, #b0bec5 100%); }
-.screen-wrapper.steel { background: linear-gradient(135deg, #eceff1 0%, #cfd8dc 100%); }
-.screen-wrapper.flying { background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%); }
+.screen-wrapper.grass { background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%); }
+.screen-wrapper.fire { background: linear-gradient(135deg, #FBE9E7 0%, #FFCCBC 100%); }
+.screen-wrapper.water { background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%); }
+.screen-wrapper.bug { background: linear-gradient(135deg, #F1F8E9 0%, #DCEDC8 100%); }
+.screen-wrapper.normal { background: linear-gradient(135deg, #F5F5F5 0%, #E0E0E0 100%); }
+.screen-wrapper.poison { background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%); }
+.screen-wrapper.electric { background: linear-gradient(135deg, #FFFDE7 0%, #FFF9C4 100%); }
+.screen-wrapper.ground { background: linear-gradient(135deg, #EFEBE9 0%, #D7CCC8 100%); }
+.screen-wrapper.fairy { background: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 100%); }
+.screen-wrapper.fighting { background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%); }
+.screen-wrapper.psychic { background: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 100%); }
+.screen-wrapper.rock { background: linear-gradient(135deg, #D7CCC8 0%, #BCAAA4 100%); }
+.screen-wrapper.ghost { background: linear-gradient(135deg, #EDE7F6 0%, #D1C4E9 100%); }
+.screen-wrapper.ice { background: linear-gradient(135deg, #E0F7FA 0%, #B2EBF2 100%); }
+.screen-wrapper.dragon { background: linear-gradient(135deg, #E8EAF6 0%, #C5CAE9 100%); }
+.screen-wrapper.dark { background: linear-gradient(135deg, #CFD8DC 0%, #B0BEC5 100%); }
+.screen-wrapper.steel { background: linear-gradient(135deg, #ECEFF1 0%, #CFD8DC 100%); }
+.screen-wrapper.flying { background: linear-gradient(135deg, #E1F5FE 0%, #B3E5FC 100%); }
 
 .pokemon-detail-container {
   width: 100%;
@@ -58,16 +57,9 @@
   border-radius: 12px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   gap: 6px;
-}
-
-.back-button:hover {
-  background: var(--text-dark);
-  color: #ffffff;
-  border-color: var(--text-dark);
 }
 
 h2 {
@@ -93,22 +85,13 @@ h2 {
 .cry-button {
   display: block;
   margin: 15px auto;
-  background: #ffde00;
+  background: #FFDE00;
   color: #101010;
   border: 2px solid #101010;
   padding: 8px 20px;
   font-weight: 700;
   border-radius: 30px;
   cursor: pointer;
-  transition: all 0.1s ease;
-}
-
-.cry-button:hover {
-  transform: translateY(2px);
-}
-
-.cry-button:active {
-  transform: translateY(4px);
 }
 
 .sprite-carousel {
@@ -122,7 +105,7 @@ h2 {
 }
 
 .carousel-btn {
-  background: #ffffff;
+  background: #FFFFFF;
   border: none;
   width: 40px;
   height: 40px;
@@ -130,11 +113,6 @@ h2 {
   font-size: 1.2rem;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
-}
-
-.carousel-btn:hover {
-  transform: scale(1.1);
 }
 
 .sprite-img {
@@ -214,7 +192,6 @@ ul {
   height: 100%;
   background-color: var(--primary-color);
   border-radius: 4px;
-  transition: width 0.4s ease-out;
 }
 
 .types-container {
@@ -248,7 +225,7 @@ ul {
 
 .weakness-list {
   font-size: 0.9rem;
-  color: #c0392b;
+  color: #C0392B;
   font-weight: 600;
   text-transform: capitalize;
 }
@@ -260,8 +237,8 @@ ul {
 }
 
 .abilities-list li {
-  background: #e0f2fe;
-  color: #0369a1;
+  background: #E0F2FE;
+  color: #0369A1;
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 0.9rem;
@@ -270,7 +247,7 @@ ul {
 }
 
 .abilities-list li span {
-  color: #0c4a6e;
+  color: #0C4A6E;
   font-style: italic;
   font-size: 0.8rem;
   opacity: 0.8;

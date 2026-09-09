@@ -1,9 +1,25 @@
+import { useEffect } from 'react';
 import { useSettings } from '../context/SettingsContext'
 import '../styles/Settings.css'
 import { useNavigate } from 'react-router-dom';
 
 
 export function Settings() {
+
+    useEffect(() => {
+
+    const Theme = localStorage.getItem('theme')
+
+    if (Theme) {
+      document.body.classList.add('blackMode')
+      document.body.classList.remove('whiteMode')
+    }
+    else {
+      document.body.classList.add('whiteMode')
+      document.body.classList.remove('blackMode')
+    }
+  }, [])
+    
   const { Logout, ChangeTheme } = useSettings()
     const navigate = useNavigate();
   

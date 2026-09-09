@@ -12,7 +12,19 @@ export const RenderPokemonsHomePage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
     const navigate = useNavigate(); 
 
+    useEffect(() => {
 
+    const Theme = localStorage.getItem('theme')
+      console.log(Theme)
+    if (Theme) {
+      document.body.classList.add('blackMode')
+      document.body.classList.remove('whiteMode')
+    }
+    else {
+      document.body.classList.add('whiteMode')
+      document.body.classList.remove('blackMode')
+    }
+  }, [])
   useEffect(() => {
     fetchMorePokemon(0);
   }, []);
